@@ -372,8 +372,7 @@
   },
   "icon": "{{driverAssetsPath}}/icon.svg",
   "platforms": [
-    "local",
-    "cloud"
+    "local"
   ],
   "connectivity": [],
   "images": {
