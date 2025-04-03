@@ -1,0 +1,44 @@
+[
+  {
+    "id": "username",
+    "type": "text",
+    "label": { "en": "Username", "nl": "Gebruikersnaam" },
+    "value": "JohnDoe@gmail.com",
+    "hint": { "en": "The name (e-mail) of the user, used with Brink-Home webportal/App.",
+              "nl": "Gebruikersnaam (e-mail adres) gebruikt voor Brink-Home webpagine/App."
+          }
+  },
+  {
+    "id": "password",
+    "type": "password",
+    "label": { "en": "Password", "nl": "Wachtwoord"},
+    "value": "Secret",
+    "hint": { "en": "The password of the user, used with Brink-Home webportal/App.",
+              "nl": "Wachtwoord gebruikt voor Brink-Home webpagina/App."
+            }
+  },
+  {
+    "id": "interval",
+    "type": "number",
+    "label": { "en": "Refresh data from Brink-Home", "nl": "Gegevens ophalen bij Brink-Home" },
+    "hint": { "en": "When Homey retrieves data from Brink-Home. (Change?! Please restart the Brink-Home App)",
+              "nl": "Bepaal wanneer Homey gegevens ophaald bij Brink-Home. (Bij wijziging de Brink-Home App herstarten)"
+            },
+    "value": 3,
+    "min": 1,
+    "max": 30,
+    "units": { "en": "minutes", "nl": "minuten" }     
+  },
+  {
+    "id": "boost_timer",
+    "type": "number",
+    "label": { "en": "Boost timer (Boost button)", "nl": "Ventilatie hoog (knop)" },
+    "hint": { "en": "Define minutes for boost timer. (Change?! Please restart the Brink-Home App)",
+              "nl": "Bepaal het aantal minuten voor de Boost-stand. (Bij wijziging de Brink-Home App herstarten)"
+            },
+    "value": 15,
+    "min": 1,
+    "max": 30,
+    "units": { "en": "minutes", "nl": "minuten" }     
+  }
+]

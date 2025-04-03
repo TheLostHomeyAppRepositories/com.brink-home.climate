@@ -1,0 +1,54 @@
+{
+     "type": "enum",
+      "title": {
+        "en": "Ventilation mode",
+        "nl": "Ventilatie stand"
+      },
+      "desc": {
+        "en": "The operational state of the appliance.",
+        "nl": "De operationele staat van het apparaat."
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Standby",
+            "nl": "Ruststand"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Low (1)",
+            "nl": "Laag (1)"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Medium (2)",
+            "nl": "Medium (2)"
+          }
+        },  
+        {
+          "id": "3",
+          "title": {
+            "en": "High (3)",
+            "nl": "Hoog (3)"
+          }
+        },  
+        {
+          "id": "4",
+          "title": {
+            "en": "On-demand",
+            "nl": "Vraaggestuurd"
+          }
+        }           
+      ],
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "units": {"en" : "mode"},
+      "uiComponent": "sensor",
+      "icon": "/assets/images/fan_speed.svg"
+}

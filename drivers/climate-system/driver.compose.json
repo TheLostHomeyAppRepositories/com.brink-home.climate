@@ -1,0 +1,410 @@
+{
+  "name": {
+    "en": "Climate System"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "operational_state", 
+    "operational_state.fan", 
+    "operational_state_2",
+    "alarm_generic",
+    "fan_mode",
+    "button"
+  ],
+  "capabilitiesOptions": {
+   "button": {
+      "type": "boolean",
+      "title": {
+        "en": "Temporary boost for defined time.",
+        "nl": "Tijdsklok voor hoge ventilatie."
+      },
+      "getable": true,
+      "setable": true,
+      "insights": true,
+      "uiComponent": "button",
+      "uiQuickAction": false
+    },
+    "alarm_generic": {
+      "type": "boolean",
+      "title": {
+        "en": "Dirty Filter",
+        "nl": "Vuil Filter"
+      },
+      "desc": {
+        "en": "Alarm raised when filter needs replacement.",
+        "nl": "Alarm als filter vervangen moet worden."
+      },
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Filter alarm turned on",
+        "nl": "Filter alarm ging af"
+      },
+      "insightsTitleFalse": {
+        "en": "Filter alarm turned off",
+        "nl": "Filter alarm ging uit"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"   
+    },
+    "operational_state.fan": {
+      "type": "enum",
+      "title": {
+        "en": "Operating mode",
+        "nl": "Bedrijfsmodus"
+      },
+      "insights": true,
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Automatic mode",
+            "nl": "Automatisch"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Manual",
+            "nl": "Handmatig"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Holiday mode",
+            "nl": "Vakantiemodus"
+          }
+        },  
+        {
+          "id": "3",
+          "title": {
+            "en": "Party mode",
+            "nl": "Feestmodus"
+          }
+        },  
+        {
+          "id": "4",
+          "title": {
+            "en": "Night mode",
+            "nl": "Nachtmodus"
+          }
+        }           
+      ]      
+    }, 
+    "fan_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Operating mode",
+        "nl": "Bedrijfsmodus"
+      },
+      "desc": {
+        "en": "The operating mode for the appliance.",
+        "nl": "De bedrijfsmodus van het systeem."
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Automatic mode",
+            "nl": "Automatisch"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Manual",
+            "nl": "Handmatig"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Holiday mode",
+            "nl": "Vakantiemodus"
+          }
+        },  
+        {
+          "id": "3",
+          "title": {
+            "en": "Party mode",
+            "nl": "Feestmodus"
+          }
+        },  
+        {
+          "id": "4",
+          "title": {
+            "en": "Night mode",
+            "nl": "Nachtmodus"
+          }
+        }           
+      ]
+    },
+    "operational_state": {
+      "type": "enum",
+      "title": {
+        "en": "Ventilation mode",
+        "nl": "Ventilatie stand"
+      },
+      "desc": {
+        "en": "The operational state of the appliance.",
+        "nl": "De operationele staat van het apparaat."
+      },
+      "insights": true,
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Standby",
+            "nl": "Ruststand"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Low (1)",
+            "nl": "Laag (1)"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Medium (2)",
+            "nl": "Medium (2)"
+          }
+        },  
+        {
+          "id": "3",
+          "title": {
+            "en": "High (3)",
+            "nl": "Hoog (3)"
+          }
+        },  
+        {
+          "id": "4",
+          "title": {
+            "en": "On-demand",
+            "nl": "Vraaggestuurd"
+          }
+        }           
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "operational_state_changed",
+            "highlight": true,
+            "title": {
+              "en": "The operational state changed to",
+              "nl": "De ventilatie modus is veranderd naar"
+            },
+            "args": [
+              {
+                "name": "state",
+                "type": "dropdown",
+                "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Standby",
+            "nl": "Ruststand"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "1-Low",
+            "nl": "1-Laag"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "2-Medium",
+            "nl": "2-Medium"
+          }
+        },  
+        {
+          "id": "3",
+          "title": {
+            "en": "3-High",
+            "nl": "3-Hoog"
+          }
+        },  
+        {
+          "id": "4",
+          "title": {
+            "en": "On-demand",
+            "nl": "Vraaggestuurd"
+          }
+        }           
+      ],
+                "meta": {
+                  "$values": true
+                }
+              }
+            ]
+          }
+        ],
+        "actions": [
+        {
+        "id": "operational_state",
+        "title": {
+          "en": "Set the mode",
+          "nl": "Stel de modus in"
+        },
+        "titleFormatted": {
+        "en": "Change fan speed to [[operational_state]]",
+        "nl": "V2erander ventilator snelheid naar [[operational_state]]"
+         },
+        "args": [
+          {
+            "name": "operational_state",
+            "type": "dropdown",
+            "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Standby",
+            "nl": "Ruststand"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Low (1)",
+            "nl": "Laag (1)"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Medium (2)",
+            "nl": "Medium (2)"
+          }
+        },  
+        {
+          "id": "3",
+          "title": {
+            "en": "High (3)",
+            "nl": "Hoog (3)"
+          }
+        },  
+        {
+          "id": "4",
+          "title": {
+            "en": "On-demand",
+            "nl": "Vraaggestuurd"
+          }
+        }           
+      ],
+      "meta": {
+        "$values": true
+      }
+    }
+  ]
+}
+],
+        "conditions": [
+          {
+            "id": "operational_state_is",
+            "title": {
+              "en": "Ventilation level !{{is|is not}}",
+              "nl": "Ventilatie modus !{{is|is niet}}"
+            },
+            "args": [
+              {
+                "name": "state",
+                "type": "dropdown",
+                "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Standby",
+            "nl": "Ruststand"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "1-Low",
+            "nl": "1-Laag"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "2-Medium",
+            "nl": "2-Medium"
+          }
+        },  
+        {
+          "id": "3",
+          "title": {
+            "en": "3-High",
+            "nl": "3-Hoog"
+          }
+        },  
+        {
+          "id": "4",
+          "title": {
+            "en": "On-demand",
+            "nl": "Vraaggestuurd"
+          }
+        }           
+      ],
+      
+                "meta": {
+                  "$values": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "minCompatibility": "12.2.0"
+    }
+  },
+  "icon": "{{driverAssetsPath}}/icon.svg",
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "connectivity": [],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "login_credentials",
+      "template": "login_credentials",
+      "options": {
+        "title": {
+          "en": "Brink Home Account"
+        },
+        "usernameLabel": { "en": "E-mail address" },
+        "usernamePlaceholder": { "en": "john@doe.com" },
+        "passwordLabel": { "en": "Password" },
+        "passwordPlaceholder": { "en": "Password" }
+      }
+    },
+    {
+    "id": "list_devices",
+    "template": "list_devices",
+    "navigation": {
+      "next": "add_devices"
+                  }
+  },
+  {
+    "id": "add_devices",
+    "template": "add_devices"
+  }
+          ] 
+}

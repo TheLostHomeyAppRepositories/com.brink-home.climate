@@ -1,0 +1,94 @@
+{
+    "triggers": [
+          {
+            "id": "alarm_generic_true",
+            "title": {
+              "en": "The filter alarm turned on",
+              "nl": "Het filter alarm gaat aan"
+            }
+          },
+          {
+            "id": "alarm_generic_false",
+            "title": {
+              "en": "The filter alarm turned off",
+              "nl": "Het filter alarm ging uit"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "id": "alarm_generic",
+            "title": {
+              "en": "The filter alarm is !{{on|off}}",
+              "nl": "Het filter alarm is !{{aan|uit}}"
+            }
+          }
+        ],
+        
+"actions": [
+        {
+            "id": "press",
+            "title": {
+              "en": "Activate boost timer mode",
+              "nl": "Activeer boost timer modus"
+            }   
+        },
+        {
+        "id": "operational_state_flow_card",
+        "title": {
+          "en": "Set the mode",
+          "nl": "Stel de modus in"
+        },
+        "titleFormatted": {
+        "en": "Change fan speed to [[operational_state]]",
+        "nl": "Verander ventilator snelheid naar [[operational_state]]"
+         },
+        "args": [
+          {
+            "name": "operational_state",
+            "type": "dropdown",
+            "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Standby",
+            "nl": "Ruststand"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Low (1)",
+            "nl": "Laag (1)"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Medium (2)",
+            "nl": "Medium (2)"
+          }
+        },  
+        {
+          "id": "3",
+          "title": {
+            "en": "High (3)",
+            "nl": "Hoog (3)"
+          }
+        },  
+        {
+          "id": "4",
+          "title": {
+            "en": "On-demand",
+            "nl": "Vraaggestuurd"
+          }
+        }           
+      ],
+            "meta": {
+              "$values": true
+            }
+          }
+        ]
+      }
+    ]
+  }
