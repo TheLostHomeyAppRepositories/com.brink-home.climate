@@ -6,8 +6,7 @@
   "sdk": 3,
   "brandColor": "#e30615",
   "platforms": [
-    "local",
-    "cloud"
+    "local"
   ],
   "name": {
     "en": "Brink-Home"
