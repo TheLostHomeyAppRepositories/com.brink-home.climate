@@ -1,5 +1,8 @@
 {
   "1.1.0": {
     "en": "First test public test release"
+  },
+  "1.1.1": {
+    "en": "Removed Cloud support"
   }
 }
