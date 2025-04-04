@@ -15,8 +15,8 @@
    "button": {
       "type": "boolean",
       "title": {
-        "en": "Temporary boost for defined time.",
-        "nl": "Tijdsklok voor hoge ventilatie."
+        "en": "High ventilation (timer)",
+        "nl": "Hoge ventilatie (tijdklok)"
       },
       "getable": true,
       "setable": true,
@@ -27,8 +27,8 @@
     "alarm_generic": {
       "type": "boolean",
       "title": {
-        "en": "Dirty Filter",
-        "nl": "Vuil Filter"
+        "en": "Filter is dirty",
+        "nl": "Filter is vuil"
       },
       "desc": {
         "en": "Alarm raised when filter needs replacement.",

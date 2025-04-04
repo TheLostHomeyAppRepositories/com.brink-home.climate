@@ -5,7 +5,7 @@
     "label": { "en": "Username", "nl": "Gebruikersnaam" },
     "value": "JohnDoe@gmail.com",
     "hint": { "en": "The name (e-mail) of the user, used with Brink-Home webportal/App.",
-              "nl": "Gebruikersnaam (e-mail adres) gebruikt voor Brink-Home webpagine/App."
+              "nl": "Gebruikersnaam (e-mail adres) gebruikt voor Brink-Home webpagina/App."
           }
   },
   {
