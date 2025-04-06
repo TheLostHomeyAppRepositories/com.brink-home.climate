@@ -10,12 +10,12 @@ module.exports = class MyApp extends Homey.App {
   async onInit() {
     this.log('MyApp has been initialized');
   
-  const card_button = this.homey.flow.getActionCard('press');
-  card_button.registerRunListener(async () => {
+  //const card_button = this.homey.flow.getActionCard('press');
+  //card_button.registerRunListener(async () => {
 
-    this.log('flow button');
+    //this.log('flow button');
 
-  });
+  //});
   }
   
 };

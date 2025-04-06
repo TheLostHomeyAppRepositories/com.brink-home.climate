@@ -16,5 +16,8 @@
   },
   "1.1.5": {
     "en": "minor typos fixed"
+  },
+  "1.2.0": {
+    "en": "Removed debugging to optimize memory"
   }
 }
