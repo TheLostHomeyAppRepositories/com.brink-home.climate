@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.brink-home.climate",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "brandColor": "#e30615",
@@ -181,8 +181,8 @@
         "button": {
           "type": "boolean",
           "title": {
-            "en": "Temporary boost for defined time.",
-            "nl": "Tijdsklok voor hoge ventilatie."
+            "en": "High ventilation (timer)",
+            "nl": "Hoge ventilatie (tijdklok)"
           },
           "getable": true,
           "setable": true,
@@ -193,8 +193,8 @@
         "alarm_generic": {
           "type": "boolean",
           "title": {
-            "en": "Dirty Filter",
-            "nl": "Vuil Filter"
+            "en": "Filter is dirty",
+            "nl": "Filter is vuil"
           },
           "desc": {
             "en": "Alarm raised when filter needs replacement.",
@@ -419,7 +419,7 @@
           "value": "JohnDoe@gmail.com",
           "hint": {
             "en": "The name (e-mail) of the user, used with Brink-Home webportal/App.",
-            "nl": "Gebruikersnaam (e-mail adres) gebruikt voor Brink-Home webpagine/App."
+            "nl": "Gebruikersnaam (e-mail adres) gebruikt voor Brink-Home webpagina/App."
           }
         },
         {
