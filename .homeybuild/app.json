@@ -1,0 +1,537 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.brink-home.climate",
+  "version": "1.2.1",
+  "compatibility": ">=12.2.0",
+  "sdk": 3,
+  "brandColor": "#e30615",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Brink-Home"
+  },
+  "description": {
+    "en": "Brink-Home App: Your Climate, Perfectly in Tune."
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Joeri van Bodegom",
+    "email": "joeri@vanbodegom.net"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "joerivb"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/jvanbodegom/brink-homeY/issues"
+  },
+  "source": "https://github.com/jvanbodegom/brink-homeY",
+  "support": "mailto:joeri+Brink-Home@vanbodegom.net",
+  "flow": {
+    "triggers": [
+      {
+        "id": "alarm_generic_true",
+        "title": {
+          "en": "The filter alarm turned on",
+          "nl": "Het filter alarm gaat aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climate-system"
+          }
+        ]
+      },
+      {
+        "id": "alarm_generic_false",
+        "title": {
+          "en": "The filter alarm turned off",
+          "nl": "Het filter alarm ging uit"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climate-system"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "alarm_generic",
+        "title": {
+          "en": "The filter alarm is !{{on|off}}",
+          "nl": "Het filter alarm is !{{aan|uit}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climate-system"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "press",
+        "title": {
+          "en": "Activate boost timer mode",
+          "nl": "Activeer boost timer modus"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climate-system"
+          }
+        ]
+      },
+      {
+        "id": "operational_state_flow_card",
+        "title": {
+          "en": "Set the mode",
+          "nl": "Stel de modus in"
+        },
+        "titleFormatted": {
+          "en": "Change fan speed to [[operational_state]]",
+          "nl": "Verander ventilator snelheid naar [[operational_state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climate-system"
+          },
+          {
+            "name": "operational_state",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Standby",
+                  "nl": "Ruststand"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Low (1)",
+                  "nl": "Laag (1)"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Medium (2)",
+                  "nl": "Medium (2)"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "High (3)",
+                  "nl": "Hoog (3)"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "On-demand",
+                  "nl": "Vraaggestuurd"
+                }
+              }
+            ],
+            "meta": {}
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Climate System"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "operational_state",
+        "operational_state.fan",
+        "operational_state_2",
+        "alarm_generic",
+        "fan_mode",
+        "button"
+      ],
+      "capabilitiesOptions": {
+        "button": {
+          "type": "boolean",
+          "title": {
+            "en": "High ventilation (timer)",
+            "nl": "Hoge ventilatie (tijdklok)"
+          },
+          "getable": true,
+          "setable": true,
+          "insights": true,
+          "uiComponent": "button",
+          "uiQuickAction": false
+        },
+        "alarm_generic": {
+          "type": "boolean",
+          "title": {
+            "en": "Filter is dirty",
+            "nl": "Filter is vuil"
+          },
+          "desc": {
+            "en": "Alarm raised when filter needs replacement.",
+            "nl": "Alarm als filter vervangen moet worden."
+          },
+          "insights": true,
+          "insightsTitleTrue": {
+            "en": "Filter alarm turned on",
+            "nl": "Filter alarm ging af"
+          },
+          "insightsTitleFalse": {
+            "en": "Filter alarm turned off",
+            "nl": "Filter alarm ging uit"
+          },
+          "getable": true,
+          "setable": false,
+          "uiComponent": "sensor"
+        },
+        "operational_state.fan": {
+          "type": "enum",
+          "title": {
+            "en": "Operating mode",
+            "nl": "Bedrijfsmodus"
+          },
+          "insights": true,
+          "values": [
+            {
+              "id": "0",
+              "title": {
+                "en": "Automatic mode",
+                "nl": "Automatisch"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "Manual",
+                "nl": "Handmatig"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "Holiday mode",
+                "nl": "Vakantiemodus"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "Party mode",
+                "nl": "Feestmodus"
+              }
+            },
+            {
+              "id": "4",
+              "title": {
+                "en": "Night mode",
+                "nl": "Nachtmodus"
+              }
+            }
+          ]
+        },
+        "fan_mode": {
+          "type": "enum",
+          "title": {
+            "en": "Operating mode",
+            "nl": "Bedrijfsmodus"
+          },
+          "desc": {
+            "en": "The operating mode for the appliance.",
+            "nl": "De bedrijfsmodus van het systeem."
+          },
+          "uiComponent": "picker",
+          "getable": true,
+          "setable": true,
+          "values": [
+            {
+              "id": "0",
+              "title": {
+                "en": "Automatic mode",
+                "nl": "Automatisch"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "Manual",
+                "nl": "Handmatig"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "Holiday mode",
+                "nl": "Vakantiemodus"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "Party mode",
+                "nl": "Feestmodus"
+              }
+            },
+            {
+              "id": "4",
+              "title": {
+                "en": "Night mode",
+                "nl": "Nachtmodus"
+              }
+            }
+          ]
+        },
+        "operational_state": {
+          "type": "enum",
+          "title": {
+            "en": "Ventilation mode",
+            "nl": "Ventilatie stand"
+          },
+          "desc": {
+            "en": "The operational state of the appliance.",
+            "nl": "De operationele staat van het apparaat."
+          },
+          "insights": true,
+          "values": [
+            {
+              "id": "0",
+              "title": {
+                "en": "Standby",
+                "nl": "Ruststand"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "Low (1)",
+                "nl": "Laag (1)"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "Medium (2)",
+                "nl": "Medium (2)"
+              }
+            },
+            {
+              "id": "3",
+              "title": {
+                "en": "High (3)",
+                "nl": "Hoog (3)"
+              }
+            },
+            {
+              "id": "4",
+              "title": {
+                "en": "On-demand",
+                "nl": "Vraaggestuurd"
+              }
+            }
+          ],
+          "getable": true,
+          "setable": true,
+          "uiComponent": "picker",
+          "minCompatibility": "12.2.0"
+        }
+      },
+      "icon": "/drivers/climate-system/assets/icon.svg",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [],
+      "images": {
+        "small": "/drivers/climate-system/assets/images/small.png",
+        "large": "/drivers/climate-system/assets/images/large.png",
+        "xlarge": "/drivers/climate-system/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "title": {
+              "en": "Brink Home Account"
+            },
+            "usernameLabel": {
+              "en": "E-mail address"
+            },
+            "usernamePlaceholder": {
+              "en": "john@doe.com"
+            },
+            "passwordLabel": {
+              "en": "Password"
+            },
+            "passwordPlaceholder": {
+              "en": "Password"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "climate-system",
+      "settings": [
+        {
+          "id": "username",
+          "type": "text",
+          "label": {
+            "en": "Username",
+            "nl": "Gebruikersnaam"
+          },
+          "value": "JohnDoe@gmail.com",
+          "hint": {
+            "en": "The name (e-mail) of the user, used with Brink-Home webportal/App.",
+            "nl": "Gebruikersnaam (e-mail adres) gebruikt voor Brink-Home webpagina/App."
+          }
+        },
+        {
+          "id": "password",
+          "type": "password",
+          "label": {
+            "en": "Password",
+            "nl": "Wachtwoord"
+          },
+          "value": "Secret",
+          "hint": {
+            "en": "The password of the user, used with Brink-Home webportal/App.",
+            "nl": "Wachtwoord gebruikt voor Brink-Home webpagina/App."
+          }
+        },
+        {
+          "id": "interval",
+          "type": "number",
+          "label": {
+            "en": "Refresh data from Brink-Home",
+            "nl": "Gegevens ophalen bij Brink-Home"
+          },
+          "hint": {
+            "en": "When Homey retrieves data from Brink-Home. (Change?! Please restart the Brink-Home App)",
+            "nl": "Bepaal wanneer Homey gegevens ophaald bij Brink-Home. (Bij wijziging de Brink-Home App herstarten)"
+          },
+          "value": 3,
+          "min": 1,
+          "max": 30,
+          "units": {
+            "en": "minutes",
+            "nl": "minuten"
+          }
+        },
+        {
+          "id": "boost_timer",
+          "type": "number",
+          "label": {
+            "en": "Boost timer (Boost button)",
+            "nl": "Ventilatie hoog (knop)"
+          },
+          "hint": {
+            "en": "Define minutes for boost timer. (Change?! Please restart the Brink-Home App)",
+            "nl": "Bepaal het aantal minuten voor de Boost-stand. (Bij wijziging de Brink-Home App herstarten)"
+          },
+          "value": 15,
+          "min": 1,
+          "max": 30,
+          "units": {
+            "en": "minutes",
+            "nl": "minuten"
+          }
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "operational_state_2": {
+      "type": "enum",
+      "title": {
+        "en": "Ventilation mode",
+        "nl": "Ventilatie stand"
+      },
+      "desc": {
+        "en": "The operational state of the appliance.",
+        "nl": "De operationele staat van het apparaat."
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Standby",
+            "nl": "Ruststand"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Low (1)",
+            "nl": "Laag (1)"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Medium (2)",
+            "nl": "Medium (2)"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "High (3)",
+            "nl": "Hoog (3)"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "On-demand",
+            "nl": "Vraaggestuurd"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "units": {
+        "en": "mode"
+      },
+      "uiComponent": "sensor",
+      "icon": "/assets/images/fan_speed.svg"
+    }
+  }
+}
