@@ -22,5 +22,8 @@
   },
   "1.2.1": {
     "en": "Optimization, clean-up to reduce mem usage"
+  },
+  "1.2.2": {
+    "en": "Yet another cleanup of un-used files and folders."
   }
 }
