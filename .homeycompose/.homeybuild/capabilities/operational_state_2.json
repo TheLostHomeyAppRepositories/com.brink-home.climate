@@ -47,7 +47,6 @@
       ],
       "getable": true,
       "setable": false,
-      "insights": true,
       "units": {"en" : "mode"},
       "uiComponent": "sensor",
       "icon": "/assets/images/fan_speed.svg"

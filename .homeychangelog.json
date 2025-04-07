@@ -19,5 +19,8 @@
   },
   "1.2.0": {
     "en": "Removed debugging to optimize memory"
+  },
+  "1.2.1": {
+    "en": "Optimization, clean-up to reduce mem usage"
   }
 }

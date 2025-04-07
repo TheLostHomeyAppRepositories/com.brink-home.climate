@@ -20,7 +20,6 @@
       },
       "getable": true,
       "setable": true,
-      "insights": true,
       "uiComponent": "button",
       "uiQuickAction": false
     },
@@ -34,15 +33,6 @@
         "en": "Alarm raised when filter needs replacement.",
         "nl": "Alarm als filter vervangen moet worden."
       },
-      "insights": true,
-      "insightsTitleTrue": {
-        "en": "Filter alarm turned on",
-        "nl": "Filter alarm ging af"
-      },
-      "insightsTitleFalse": {
-        "en": "Filter alarm turned off",
-        "nl": "Filter alarm ging uit"
-      },
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"   
@@ -53,7 +43,6 @@
         "en": "Operating mode",
         "nl": "Bedrijfsmodus"
       },
-      "insights": true,
       "values": [
         {
           "id": "0",
@@ -153,7 +142,6 @@
         "en": "The operational state of the appliance.",
         "nl": "De operationele staat van het apparaat."
       },
-      "insights": true,
       "values": [
         {
           "id": "0",
