@@ -57,7 +57,7 @@ module.exports = class MyDevice extends Homey.Device {
 
             // Check if authentication is successful
             if (!preauthResponse.ok) {
-                console.error('Authentication failed');
+                console.log('Authentication failed');
                 return;
             }
 
@@ -76,7 +76,7 @@ module.exports = class MyDevice extends Homey.Device {
 
                 // Check if data fetch was successful
                 if (!predataResponse.ok) {
-                    console.error('Failed to fetch data from URL 2');
+                    console.log('Failed to fetch data from URL 2');
                     return;
                 }
 
@@ -113,7 +113,7 @@ module.exports = class MyDevice extends Homey.Device {
 
                         // Check if data fetch was successful
                         if (!predetailResponse.ok) {
-                            console.error('Failed to fetch data from URL 3');
+                            console.log('Failed to fetch data from URL 3');
                             return;
                         }
 
@@ -160,13 +160,25 @@ module.exports = class MyDevice extends Homey.Device {
 
                         console.log('getDescriptionValues result:', descriptionResult);
 
+                        //Better error handling for fetching data from external webservers
+                        console.error = function () {
+                          // Suppress error logs
+                        };
+
     /** Collect from Brink-Home Device-ID from API-call */
     // Run on interval; keep going...
     console.log('Start loop at interval = ' + globalInterval);
     const myInterval = this.homey.setInterval(async () => {
             
-            
-            console.log('### Here we go again...');
+    console.log('### Here we go again...');
+              //Check if webserver is responding; otherwise wait for next interval
+              try {
+                    const webresponse = await fetch(url1, { method: 'HEAD' }); // HEAD method minimizes data transfer
+                    //return webresponse.ok; // Returns true if status code is 200-299
+              } catch (error) {
+                    console.log("Server is offline or unreachable:");
+                    return;
+              }    
 
               // Step 1: Authenticate with URL 1 (send POST request with username and password)
               const authResponse = await fetch(url1, {
@@ -181,9 +193,10 @@ module.exports = class MyDevice extends Homey.Device {
                   credentials: 'include', // Store cookies (including session cookie)
               });
 
+            
               // Check if authentication is successful
               if (!authResponse.ok) {
-                  console.error('Authentication failed');
+                  console.log('Authentication failed');
                   this.homey.clearInterval(myInterval);
                   return;
               }
@@ -203,7 +216,7 @@ module.exports = class MyDevice extends Homey.Device {
 
                   // Check if data fetch was successful
                   if (!dataResponse.ok) {
-                      console.error('Failed to fetch data from URL 2');
+                      console.log('Failed to fetch data from URL 2');
                       return;
                   }
 
@@ -240,7 +253,7 @@ module.exports = class MyDevice extends Homey.Device {
 
                           // Check if data fetch was successful
                           if (!detailResponse.ok) {
-                              console.error('Failed to fetch data from URL 3');
+                              console.log('Failed to fetch data from URL 3');
                               return;
                           }
 
