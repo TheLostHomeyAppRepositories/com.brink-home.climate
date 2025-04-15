@@ -58,7 +58,7 @@ module.exports = class MyDevice extends Homey.Device {
             // Check if authentication is successful
             if (!preauthResponse.ok) {
                 console.log('Authentication failed');
-                return;
+                return true;
             }
 
             console.log('Authentication successful');
@@ -77,7 +77,7 @@ module.exports = class MyDevice extends Homey.Device {
                 // Check if data fetch was successful
                 if (!predataResponse.ok) {
                     console.log('Failed to fetch data from URL 2');
-                    return;
+                    return true;
                 }
 
                 // Parse and log the JSON response from URL 2
@@ -114,7 +114,7 @@ module.exports = class MyDevice extends Homey.Device {
                         // Check if data fetch was successful
                         if (!predetailResponse.ok) {
                             console.log('Failed to fetch data from URL 3');
-                            return;
+                            return true;
                         }
 
                         // Parse and log the JSON response from URL 3
@@ -160,6 +160,8 @@ module.exports = class MyDevice extends Homey.Device {
 
                         console.log('getDescriptionValues result:', descriptionResult);
 
+                      
+
                         //Better error handling for fetching data from external webservers
                         console.error = function () {
                           // Suppress error logs
@@ -177,7 +179,7 @@ module.exports = class MyDevice extends Homey.Device {
                     //return webresponse.ok; // Returns true if status code is 200-299
               } catch (error) {
                     console.log("Server is offline or unreachable:");
-                    return;
+                    return true;
               }    
 
               // Step 1: Authenticate with URL 1 (send POST request with username and password)
@@ -192,13 +194,13 @@ module.exports = class MyDevice extends Homey.Device {
                   }),
                   credentials: 'include', // Store cookies (including session cookie)
               });
-
+            
             
               // Check if authentication is successful
               if (!authResponse.ok) {
-                  console.log('Authentication failed');
+                  console.log('Authentication failed, invalid credentials');
                   this.homey.clearInterval(myInterval);
-                  return;
+                  return true;
               }
 
               console.log('Authentication successful');
@@ -217,8 +219,10 @@ module.exports = class MyDevice extends Homey.Device {
                   // Check if data fetch was successful
                   if (!dataResponse.ok) {
                       console.log('Failed to fetch data from URL 2');
-                      return;
+                      return true;
                   }
+
+             
 
                   // Parse and log the JSON response from URL 2
                   const data = await dataResponse.json();
@@ -254,8 +258,9 @@ module.exports = class MyDevice extends Homey.Device {
                           // Check if data fetch was successful
                           if (!detailResponse.ok) {
                               console.log('Failed to fetch data from URL 3');
-                              return;
+                              return true;
                           }
+
 
                           // Parse and log the JSON response from URL 3
                           const details = await detailResponse.json();
@@ -299,9 +304,10 @@ module.exports = class MyDevice extends Homey.Device {
                           console.log('getDescriptionValues result:', descriptionResult);
 
                           //next run is on defined interval found under settings
-                          valinterval = globalInterval;
+                          //valinterval = globalInterval;
 
-                          return descriptionResult;
+                          //return descriptionResult;
+                          return true;
 
     }, globalInterval) 
 

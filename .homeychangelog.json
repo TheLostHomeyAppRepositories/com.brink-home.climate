@@ -25,5 +25,8 @@
   },
   "1.2.2": {
     "en": "Yet another cleanup of un-used files and folders."
+  },
+  "1.2.3": {
+    "en": "Fixed error handling by Homey"
   }
 }
