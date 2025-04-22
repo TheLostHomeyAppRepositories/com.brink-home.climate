@@ -4,6 +4,10 @@
   "main": "app.js",
   "scripts": {},
   "devDependencies": {
-    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.10"
+    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.10",
+    "@types/node": "^20.8.10"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
   }
 }

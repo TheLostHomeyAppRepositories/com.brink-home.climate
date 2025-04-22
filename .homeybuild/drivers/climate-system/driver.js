@@ -1,9 +1,9 @@
 'use strict';
 
-import { Driver } from 'homey';
+const Homey = require('homey');
 
 
-export default class MyDriver extends Driver {
+module.exports = class MyDriver extends Homey.Driver {
 
   /**
    * onInit is called when the driver is initialized.

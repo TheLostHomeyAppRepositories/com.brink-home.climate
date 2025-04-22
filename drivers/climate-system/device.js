@@ -2,8 +2,6 @@
 
 const Homey = require('homey');
 
-const fetch = require('node-fetch');
-
 //Declare global variables
 let url1 = 'https://www.brink-home.com/portal/api/portal/UserLogon'; // URL for authentication
 let url2 = 'https://www.brink-home.com/portal/api/portal/GetSystemList'; // URL to fetch JSON data gateway_id and system_id
