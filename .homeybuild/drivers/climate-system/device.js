@@ -1,6 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
+const fetch = require('node-fetch');
 
 //Declare global variables
 let url1 = 'https://www.brink-home.com/portal/api/portal/UserLogon'; // URL for authentication
