@@ -34,5 +34,8 @@
   },
   "1.3.5": {
     "en": "bug-fix error; fetch is not defined"
+  },
+  "1.3.6": {
+    "en": "HP2019 bugfix"
   }
 }

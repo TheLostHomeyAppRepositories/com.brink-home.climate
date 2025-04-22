@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-//const fetch = require('node-fetch');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 
 module.exports = class MyDriver extends Homey.Driver {

@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-//const fetch = require('node-fetch');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 //Declare global variables
 let url1 = 'https://www.brink-home.com/portal/api/portal/UserLogon'; // URL for authentication
@@ -143,6 +143,8 @@ module.exports = class MyDevice extends Homey.Device {
                         modeId = mode.valueId;
                         preVentilationValue = ventilation.value;
                         preModeValue = mode.value;
+                        postModeValue = mode.value;
+                        postVentilationValue = ventilation.value;
                         console.log('ventilationId: ' + ventilationId + ', modeId: ' + modeId);
 
                         // Set device values for Filter, ventilation state and ventilation mode
@@ -557,7 +559,84 @@ module.exports = class MyDevice extends Homey.Device {
           DependendReadValuesAfterWrite: [] })
           });
   });
-  }
+  
+  //Flow Action BOOST BUTTON
+  const card_button = this.homey.flow.getActionCard('press');
+  card_button.registerRunListener(async () => {
+
+  this.log('flow BOOST Button');
+  //this.setCapabilityValue('button', false);
+
+    //Store the before values
+    postModeValue = mode.value;
+    postVentilationValue = ventilation.value;
+
+    const dataResponse = await fetch(url4, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Cookie': cookie // Include the cookie in the headers
+        },
+      credentials: 'include', // Ensure cookies (session cookie) are sent with the request
+        body: JSON.stringify({ 
+            GatewayId: vargatewayId,
+            SystemId: varsystemId,
+            WriteParameterValues: [
+            {
+                ValueId: modeId,
+                Value: '1',
+            },
+            {
+              ValueId: ventilationId,
+              Value: '3',
+          },
+        ],
+        SendInOneBundle: true,
+        DependendReadValuesAfterWrite: [] })
+        });
+
+          // Check if data fetch was successful
+          if (!dataResponse.ok) {
+              console.log(dataResponse);
+              return;
+          }
+          console.log('***Keep boost up for x seconds...');
+          this.setCapabilityValue('operational_state', '3');
+          this.setCapabilityValue('operational_state_2', '3');
+    
+          this.homey.setTimeout(async () => {
+            console.log("***Switch off Boost after interval");
+            this.setCapabilityValue('button', false);
+
+            const dataResponse = await fetch(url4, {
+              method: "POST",
+              headers: {
+                'Content-Type': 'application/json',
+                'Cookie': cookie // Include the cookie in the headers
+                },
+              credentials: 'include', // Ensure cookies (session cookie) are sent with the request
+                body: JSON.stringify({ 
+                    GatewayId: vargatewayId,
+                    SystemId: varsystemId,
+                    WriteParameterValues: [
+                    {
+                        ValueId: modeId,
+                        Value: postModeValue,
+                    },
+                    {
+                      ValueId: ventilationId,
+                      Value: postVentilationValue,
+                  },
+                ],
+                SendInOneBundle: true,
+                DependendReadValuesAfterWrite: [] })
+                });
+          
+          }, boost_timer); // 10,000 milliseconds = 10 seconds 
+
+  });
+
+}
 
   /**
    * onAdded is called when the user adds the device, called just after pairing.
