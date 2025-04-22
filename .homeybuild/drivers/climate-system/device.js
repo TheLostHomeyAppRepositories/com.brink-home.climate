@@ -1,7 +1,7 @@
 'use strict';
 
-const Homey = require('homey');
-const fetch = require('node-fetch');
+import { Device } from 'homey';
+import fetch from 'node-fetch';
 
 //Declare global variables
 let url1 = 'https://www.brink-home.com/portal/api/portal/UserLogon'; // URL for authentication
@@ -23,7 +23,7 @@ let postVentilationValue = '4';
 let valinterval = 2000;
 let globalInterval = null;
 
-module.exports = class MyDevice extends Homey.Device {
+export default class MyDevice extends Device {
 
   /**
    * onInit is called when the device is initialized.

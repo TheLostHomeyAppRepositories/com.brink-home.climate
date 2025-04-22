@@ -1,9 +1,9 @@
 'use strict';
 
-const Homey = require('homey');
-const fetch = require('node-fetch');
+import { Driver } from 'homey';
 
-module.exports = class MyDriver extends Homey.Driver {
+
+export default class MyDriver extends Driver {
 
   /**
    * onInit is called when the driver is initialized.
