@@ -8,6 +8,7 @@
     "operational_state.fan", 
     "operational_state_2",
     "alarm_generic",
+    "operational_state.bypass",
     "fan_mode",
     "button"
   ],
@@ -77,6 +78,50 @@
           "title": {
             "en": "Night mode",
             "nl": "Nachtmodus"
+          }
+        }           
+      ]      
+    },
+    "operational_state.bypass": {
+      "type": "enum",
+      "title": {
+        "en": "Bypass valve",
+        "nl": "Bypass klep"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Initialization",
+            "nl": "Initialisatie"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Opening",
+            "nl": "Openen"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Closing",
+            "nl": "Sluiten"
+          }
+        },  
+        {
+          "id": "3",
+          "title": {
+            "en": "Opened",
+            "nl": "Geopend"
+          }
+        },  
+        {
+          "id": "4",
+          "title": {
+            "en": "Closed",
+            "nl": "Gesloten"
           }
         }           
       ]      

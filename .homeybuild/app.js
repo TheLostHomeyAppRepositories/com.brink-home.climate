@@ -2,6 +2,7 @@
 
 const Homey = require('homey');
 
+
 module.exports = class MyApp extends Homey.App {
 
   /**
