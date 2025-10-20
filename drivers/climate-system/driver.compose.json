@@ -124,8 +124,129 @@
             "nl": "Gesloten"
           }
         }           
-      ]      
-    }, 
+      ],
+      "$flow": {
+        "triggers": [
+          {
+            "id": "ByPass_state_changed",
+            "highlight": true,
+            "title": {
+              "en": "The ByPass changed to",
+              "nl": "De ByPass is veranderd naar"
+            },
+            "args": [
+              {
+                "name": "ByPass",
+                "type": "dropdown",
+                "values": [
+                  {
+                    "id": "0",
+                    "title": {
+                      "en": "Initialization",
+                      "nl": "Initialisatie"
+                    }
+                  },
+                  {
+                    "id": "1",
+                    "title": {
+                      "en": "Opening",
+                      "nl": "Openen"
+                    }
+                  },
+                  {
+                    "id": "2",
+                    "title": {
+                      "en": "Closing",
+                      "nl": "Sluiten"
+                    }
+                  },  
+                  {
+                    "id": "3",
+                    "title": {
+                      "en": "Opened",
+                      "nl": "Geopend"
+                    }
+                  },  
+                  {
+                    "id": "4",
+                    "title": {
+                      "en": "Closed",
+                      "nl": "Gesloten"
+                    }
+                  }           
+                ],
+                "meta": {
+                  "$values": true
+                }
+              }
+            ]
+          }
+        ],
+        "actions": [],
+        "conditions": [
+          {
+            "id": "ByPass_state_is",
+            "title": {
+              "en": "Bypass valve !{{is|is not}}",
+              "nl": "Bypass klep !{{is|is niet}}"
+            },
+            "titleFormatted": {
+            "en": "ByPass valve",
+            "nl": "ByPass klep"
+            },
+            "args": [
+              {
+                "name": "ByPass",
+                "type": "dropdown",
+                "values": [
+                  {
+                    "id": "0",
+                    "title": {
+                      "en": "Initialization",
+                      "nl": "Initialisatie"
+                    }
+                  },
+                  {
+                    "id": "1",
+                    "title": {
+                      "en": "Opening",
+                      "nl": "Openen"
+                    }
+                  },
+                  {
+                    "id": "2",
+                    "title": {
+                      "en": "Closing",
+                      "nl": "Sluiten"
+                    }
+                  },  
+                  {
+                    "id": "3",
+                    "title": {
+                      "en": "Opened",
+                      "nl": "Geopend"
+                    }
+                  },  
+                  {
+                    "id": "4",
+                    "title": {
+                      "en": "Closed",
+                      "nl": "Gesloten"
+                    }
+                  }           
+                ],
+      
+                "meta": {
+                  "$values": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "minCompatibility": "12.2.0"
+    
+  },
     "fan_mode": {
       "type": "enum",
       "title": {

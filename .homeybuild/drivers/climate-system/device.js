@@ -25,6 +25,14 @@ module.exports = class MyDevice extends Homey.Device {
   async onInit() {
     this.log('Device initialized');
 
+    // Section to upgrade older created devices with new ByPass capability
+    if (this.hasCapability('operational_state.bypass') === false) {
+      // Check if migration is needed
+      await this.addCapability('operational_state.bypass');
+      this.log('Upgrade driver: Added Bypass capability');
+    }
+    // END upgrade
+
     const settings = this.getSettings();
     const username = settings.username;
     const password = settings.password;
@@ -105,7 +113,13 @@ module.exports = class MyDevice extends Homey.Device {
     postVentilationValue = ventilation.value;
     postModeValue = mode.value;
 
-    this.setCapabilityValue('alarm_generic', filter?.value === 1);
+    // Set device values for Filter, ventilation state and ventilation mode
+    if (filter.value == 1) {
+      this.setCapabilityValue('alarm_generic', true);
+    } else {
+      this.setCapabilityValue('alarm_generic', false);
+    };
+    //this.setCapabilityValue('alarm_generic', filter?.value === 1);
     this.setCapabilityValue('operational_state', ventilation.value);
     this.setCapabilityValue('operational_state_2', ventilation.value);
     this.setCapabilityValue('fan_mode', mode.value);

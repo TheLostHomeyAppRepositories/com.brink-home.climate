@@ -13,6 +13,65 @@
               "en": "The filter alarm turned off",
               "nl": "Het filter alarm ging uit"
             }
+          },
+          {
+            "id": "ByPass_state_changed",
+            "titleFormatted": {
+            "en": "ByPass changed to [[ByPass]]",
+            "nl": "ByPass is veranderd naar [[ByPass]]"
+            },
+            "title": {
+              "en": "The ByPass changed to",
+              "nl": "De ByPass is veranderd naar"
+            },
+            "args": [
+              {
+                "name": "ByPass",
+                "type": "dropdown",
+                "values": [
+                  {
+                    "id": "0",
+                    
+                    "title": {
+                      "en": "Initialization",
+                      "nl": "Initialisatie"
+                    }
+                  },
+                  {
+                    "id": "1",
+                    "title": {
+                      "en": "Opening",
+                      "nl": "Openen"
+                    }
+                  },
+                  {
+                    "id": "2",
+                    "title": {
+                      "en": "Closing",
+                      "nl": "Sluiten"
+                    }
+                  },  
+                  {
+                    "id": "3",
+                    "title": {
+                      "en": "Opened",
+                      "nl": "Geopend"
+                    }
+                  },  
+                  {
+                    "id": "4",
+                    "title": {
+                      "en": "Closed",
+                      "nl": "Gesloten"
+                    }
+                  }           
+                ],
+                
+                "meta": {
+                  "$values": true
+                }
+              }
+            ]
           }
         ],
         "conditions": [

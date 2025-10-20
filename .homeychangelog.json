@@ -43,5 +43,11 @@
   },
   "1.3.10": {
     "en": "Added support to show ByPass status (read-only)"
+  },
+  "1.4.1": {
+    "en": "Added support for ByPass Capability (read-only) including bug fixes (stable)"
+  },
+  "1.4.2": {
+    "en": "bug fixes"
   }
 }

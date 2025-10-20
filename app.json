@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.brink-home.climate",
-  "version": "1.3.10",
+  "version": "1.4.2",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "brandColor": "#e30615",
@@ -66,6 +66,66 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=climate-system"
+          }
+        ]
+      },
+      {
+        "id": "ByPass_state_changed",
+        "titleFormatted": {
+          "en": "ByPass changed to [[ByPass]]",
+          "nl": "ByPass is veranderd naar [[ByPass]]"
+        },
+        "title": {
+          "en": "The ByPass changed to",
+          "nl": "De ByPass is veranderd naar"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climate-system"
+          },
+          {
+            "name": "ByPass",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "title": {
+                  "en": "Initialization",
+                  "nl": "Initialisatie"
+                }
+              },
+              {
+                "id": "1",
+                "title": {
+                  "en": "Opening",
+                  "nl": "Openen"
+                }
+              },
+              {
+                "id": "2",
+                "title": {
+                  "en": "Closing",
+                  "nl": "Sluiten"
+                }
+              },
+              {
+                "id": "3",
+                "title": {
+                  "en": "Opened",
+                  "nl": "Geopend"
+                }
+              },
+              {
+                "id": "4",
+                "title": {
+                  "en": "Closed",
+                  "nl": "Gesloten"
+                }
+              }
+            ],
+            "meta": {}
           }
         ]
       }
@@ -290,7 +350,8 @@
                 "nl": "Gesloten"
               }
             }
-          ]
+          ],
+          "minCompatibility": "12.2.0"
         },
         "fan_mode": {
           "type": "enum",
