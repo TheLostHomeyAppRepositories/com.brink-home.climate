@@ -49,5 +49,11 @@
   },
   "1.4.2": {
     "en": "bug fixes"
+  },
+  "1.4.3": {
+    "en": "Bug fix to support devices without ByPass valve"
+  },
+  "1.4.4": {
+    "en": "Bug fix on Boost Timer; not de-activating after defined interval."
   }
 }
