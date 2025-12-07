@@ -108,11 +108,14 @@ module.exports = class MyDevice extends Homey.Device {
     
     const bypassvalue = parametersB.find(p => p.name === 'Status Bypassklappe');
 
+    // Remember value before boost timer; do not fetch the hi-level when boost is active
+    if (this.getCapabilityValue('button') === false) {
+      postVentilationValue = ventilation.value;
+      postModeValue = mode.value;
+    }
     ventilationId = ventilation.valueId;
     modeId = mode.valueId;
-    postVentilationValue = ventilation.value;
-    postModeValue = mode.value;
-
+    
     // Set device values for Filter, ventilation state and ventilation mode
     if (filter.value == 1) {
       this.setCapabilityValue('alarm_generic', true);
@@ -125,9 +128,9 @@ module.exports = class MyDevice extends Homey.Device {
     this.setCapabilityValue('fan_mode', mode.value);
     this.setCapabilityValue('operational_state.fan', mode.value);
 
-    if (this.hasCapability('operational_state.bypass')) {
-    this.setCapabilityValue('operational_state.bypass', bypassvalue.value);
-    }
+    if (this.hasCapability('operational_state.bypass') && bypassvalue.value !== 255) {
+      this.setCapabilityValue('operational_state.bypass', bypassvalue.value);
+  }
 
     console.log("Fetch details from Brink portal. [Done]");    
   }
@@ -161,7 +164,7 @@ module.exports = class MyDevice extends Homey.Device {
     this.homey.setInterval(() => {
       this.log('Starting interval...');
       setTimeout(() => this.restartInterval(username, password, intervalMs), 60000);
-    }, 3600000);
+    }, 7200000);
   }
 
   registerCapabilityListeners(boostTimer) {
@@ -274,6 +277,6 @@ module.exports = class MyDevice extends Homey.Device {
 
   async onDeleted() {
     this.log('Device deleted');
-    if (intervalHandle) this.homey.clearInterval;
+    if (intervalHandle) this.homey.clearInterval(intervalHandle);
   }
 };

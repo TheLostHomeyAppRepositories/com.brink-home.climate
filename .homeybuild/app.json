@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.brink-home.climate",
-  "version": "1.4.2",
+  "version": "1.4.4",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "brandColor": "#e30615",
@@ -122,6 +122,13 @@
                 "title": {
                   "en": "Closed",
                   "nl": "Gesloten"
+                }
+              },
+              {
+                "id": "255",
+                "title": {
+                  "en": "-",
+                  "nl": "-"
                 }
               }
             ],
@@ -349,6 +356,13 @@
                 "en": "Closed",
                 "nl": "Gesloten"
               }
+            },
+            {
+              "id": "255",
+              "title": {
+                "en": "-",
+                "nl": "-"
+              }
             }
           ],
           "minCompatibility": "12.2.0"
@@ -537,8 +551,8 @@
             "nl": "Gegevens ophalen bij Brink-Home"
           },
           "hint": {
-            "en": "When Homey retrieves data from Brink-Home. (Change?! Please restart the Brink-Home App)",
-            "nl": "Bepaal wanneer Homey gegevens ophaald bij Brink-Home. (Bij wijziging de Brink-Home App herstarten)"
+            "en": "When Homey retrieves data from Brink-Home.",
+            "nl": "Bepaal wanneer Homey gegevens ophaald bij Brink-Home."
           },
           "value": 3,
           "min": 1,
@@ -552,12 +566,12 @@
           "id": "boost_timer",
           "type": "number",
           "label": {
-            "en": "Boost timer (Boost button)",
-            "nl": "Ventilatie hoog (knop)"
+            "en": "Boost timer (minutes)",
+            "nl": "Tijdelijk Ventilatie hoog (minuten)"
           },
           "hint": {
-            "en": "Define minutes for boost timer. (Change?! Please restart the Brink-Home App)",
-            "nl": "Bepaal het aantal minuten voor de Boost-stand. (Bij wijziging de Brink-Home App herstarten)"
+            "en": "Define minutes for boost timer.",
+            "nl": "Bepaal het aantal minuten voor de Boost-stand."
           },
           "value": 15,
           "min": 1,
