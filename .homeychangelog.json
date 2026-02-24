@@ -58,5 +58,8 @@
   },
   "1.4.5": {
     "en": "Bug fix for filter alarm condition; plus updated npm"
+  },
+  "1.4.6": {
+    "en": "bugfix and tested: fix for filter alarm flow condition card"
   }
 }
