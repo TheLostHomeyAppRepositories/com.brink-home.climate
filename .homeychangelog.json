@@ -55,5 +55,8 @@
   },
   "1.4.4": {
     "en": "Bug fix on Boost Timer; not de-activating after defined interval."
+  },
+  "1.4.5": {
+    "en": "Bug fix for filter alarm condition; plus updated npm"
   }
 }
