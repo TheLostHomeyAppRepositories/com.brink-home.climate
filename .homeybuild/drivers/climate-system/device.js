@@ -119,6 +119,13 @@ module.exports = class MyDevice extends Homey.Device {
     // Set device values for Filter, ventilation state and ventilation mode
     if (filter.value == 1) {
       this.setCapabilityValue('alarm_generic', true);
+
+      // Send notification to time-line
+     // await this.homey.notifications.createNotification({
+     //   excerpt: 'Jouw meldingstekst hier'
+     // });
+      
+
     } else {
       this.setCapabilityValue('alarm_generic', false);
     };
@@ -239,6 +246,7 @@ module.exports = class MyDevice extends Homey.Device {
       this.setCapabilityValue('operational_state', '3');
       this.setCapabilityValue('operational_state_2', '3');
     });
+
   }
 
   async sendWriteParams(values) {
