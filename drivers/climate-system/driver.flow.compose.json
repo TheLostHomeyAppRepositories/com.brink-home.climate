@@ -100,6 +100,46 @@
             }   
         },
         {
+          "id": "set_bypass_operation",
+          "title": {
+            "en": "Set bypass operation to ...",
+            "nl": "Stel bypassklep bediening in op ..."
+          },
+          "titleFormatted": {
+          "en": "Set bypass operation to [[bypass_operation]]",
+          "nl": "Stel bypassklep bediening in op [[bypass_operation]]"
+          },
+          "args": [
+            {
+              "name": "bypass_operation",
+              "type": "dropdown",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Automatic",
+                    "nl": "Automatisch"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "Bypass Closed",
+                    "nl": "Bypass Gesloten"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "Bypass Open",
+                    "nl": "Bypass Open"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
         "id": "operational_state_flow_card",
         "title": {
           "en": "Set the mode",

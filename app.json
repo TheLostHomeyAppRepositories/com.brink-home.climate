@@ -169,6 +169,51 @@
         ]
       },
       {
+        "id": "set_bypass_operation",
+        "title": {
+          "en": "Set bypass operation to ...",
+          "nl": "Stel bypassklep bediening in op ..."
+        },
+        "titleFormatted": {
+          "en": "Set bypass operation to [[bypass_operation]]",
+          "nl": "Stel bypassklep bediening in op [[bypass_operation]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=climate-system"
+          },
+          {
+            "name": "bypass_operation",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Automatic",
+                  "nl": "Automatisch"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Bypass Closed",
+                  "nl": "Bypass Gesloten"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Bypass Open",
+                  "nl": "Bypass Open"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "operational_state_flow_card",
         "title": {
           "en": "Set the mode",
@@ -242,6 +287,7 @@
         "operational_state_2",
         "alarm_generic",
         "operational_state.bypass",
+        "operational_state.bypass_operation",
         "fan_mode",
         "button"
       ],
@@ -314,6 +360,39 @@
               }
             }
           ]
+        },
+        "operational_state.bypass_operation": {
+          "title": {
+            "en": "Bypass Operation",
+            "nl": "Bypassklep Bediening"
+          },
+          "uiComponent": "picker",
+          "getable": true,
+          "setable": true,
+          "values": [
+            {
+              "id": "0",
+              "title": {
+                "en": "Automatic",
+                "nl": "Automatisch"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "Bypass Closed",
+                "nl": "Bypass Gesloten"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "Bypass Open",
+                "nl": "Bypass Open"
+              }
+            }
+          ],
+          "preventInsights": false
         },
         "operational_state.bypass": {
           "type": "enum",
