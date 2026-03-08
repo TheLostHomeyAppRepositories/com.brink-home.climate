@@ -61,5 +61,8 @@
   },
   "1.4.6": {
     "en": "bugfix and tested: fix for filter alarm flow condition card"
+  },
+  "2.0.0": {
+    "en": "Support for updated Brink API v1.1"
   }
 }
