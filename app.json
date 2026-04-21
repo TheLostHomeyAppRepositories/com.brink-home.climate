@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.brink-home.climate",
-  "version": "2.0.0",
+  "version": "2.1.3",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "brandColor": "#e30615",
@@ -289,7 +289,16 @@
         "operational_state.bypass",
         "operational_state.bypass_operation",
         "fan_mode",
-        "button"
+        "button",
+        "measure_speed.supply",
+        "measure_speed.exhaust",
+        "measure_co2.1",
+        "measure_co2.2",
+        "measure_co2.3",
+        "measure_co2.4",
+        "measure_carbon_filter.days",
+        "measure_temperature.supply",
+        "measure_temperature.fresh"
       ],
       "capabilitiesOptions": {
         "button": {
@@ -302,6 +311,97 @@
           "setable": true,
           "uiComponent": "button",
           "uiQuickAction": false
+        },
+        "measure_temperature.fresh": {
+          "title": {
+            "en": "Fresh Air Temperature",
+            "nl": "Verse lucht-temperatuur"
+          },
+          "units": {
+            "en": "°C"
+          },
+          "decimals": 1
+        },
+        "measure_temperature.supply": {
+          "title": {
+            "en": "Supply Air Temperature",
+            "nl": "Toevoer lucht-temperatuur"
+          },
+          "units": {
+            "en": "°C"
+          },
+          "decimals": 1
+        },
+        "measure_speed.exhaust": {
+          "title": {
+            "en": "Exhaust Air Flow",
+            "nl": "Afvoer Luchtstroom"
+          },
+          "units": {
+            "en": "m³/h"
+          },
+          "decimals": 0
+        },
+        "measure_speed.supply": {
+          "title": {
+            "en": "Supply Air Flow",
+            "nl": "Toevoer Luchtstroom"
+          },
+          "units": {
+            "en": "m³/h"
+          },
+          "decimals": 0
+        },
+        "measure_carbon_filter.days": {
+          "title": {
+            "en": "Days Since Filter Reset",
+            "nl": "Dagen Sinds Filter Reset"
+          },
+          "units": {
+            "en": "days",
+            "nl": "dagen"
+          },
+          "decimals": 0
+        },
+        "measure_co2.1": {
+          "title": {
+            "en": "CO₂ Sensor 1",
+            "nl": "CO₂ Sensor 1"
+          },
+          "units": {
+            "en": "ppm"
+          },
+          "decimals": 0
+        },
+        "measure_co2.2": {
+          "title": {
+            "en": "CO₂ Sensor 2",
+            "nl": "CO₂ Sensor 2"
+          },
+          "units": {
+            "en": "ppm"
+          },
+          "decimals": 0
+        },
+        "measure_co2.3": {
+          "title": {
+            "en": "CO₂ Sensor 3",
+            "nl": "CO₂ Sensor 3"
+          },
+          "units": {
+            "en": "ppm"
+          },
+          "decimals": 0
+        },
+        "measure_co2.4": {
+          "title": {
+            "en": "CO₂ Sensor 4",
+            "nl": "CO₂ Sensor 4"
+          },
+          "units": {
+            "en": "ppm"
+          },
+          "decimals": 0
         },
         "alarm_generic": {
           "type": "boolean",

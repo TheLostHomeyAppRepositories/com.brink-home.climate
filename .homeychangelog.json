@@ -64,5 +64,17 @@
   },
   "2.0.0": {
     "en": "Support for updated Brink API v1.1"
+  },
+  "2.1.0": {
+    "en": "Additional Sensors made available thanks to updated API"
+  },
+  "2.1.1": {
+    "en": "Additional sensors like temp, air flow, co2"
+  },
+  "2.1.2": {
+    "en": "Bugfix for flow triggers on multiple Brink devices; trigger on the correct device"
+  },
+  "2.1.3": {
+    "en": "Bug fixes for reset day count, improved support for multiple devices"
   }
 }
